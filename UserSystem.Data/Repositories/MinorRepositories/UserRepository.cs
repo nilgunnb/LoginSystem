@@ -12,10 +12,26 @@ namespace UserSystem.Data.Repositories.MinorRepositories
     {
         private static readonly List<string> _emails = new List<string>();
 
-        public static bool IsUniqueEmail(string model)
+        static UserRepository()
         {
-            return _emails.Find(x => x == model) == null;
-                
+            List<UserModel> Users = UserRepository.GetAllAsync();
+
+            Users.Add(new UserModel("Nilgun", "Babazade", "nilgun@gmail.com", "1234"));
+
         }
+
+        public static bool IsUniqueEmail(string Email)
+        {
+            return _emails.Find(email => email == Email) == null;
+        }
+
     }
 }
+
+            
+
+
+        
+
+      
+   

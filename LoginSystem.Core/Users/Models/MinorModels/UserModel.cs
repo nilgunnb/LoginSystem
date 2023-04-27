@@ -18,5 +18,26 @@ namespace LoginSystem.Core.Users.Models.MinorModels
         public string Email { get; set; }
 
         public string Password { get; set; }
+
+        public UserModel(string FirstName, string LastName, string Email, string Password)
+        {
+            _id++;
+            Id = _id;
+
+            this.FirstName = FirstName;
+
+            this.LastName = LastName;
+
+            this.Email = Email;
+
+            this.Password = Password;
+        }
     }
 }
+
+
+
+
+   
+
+

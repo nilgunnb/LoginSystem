@@ -13,21 +13,21 @@ namespace LoginSystem.Core.Validations.UserValidation
     {
 
 
-        public static async Task<bool> FirstNameValidator(string FirstName)
+        public static bool FirstNameValidator(string FirstName)
         {
             Regex FirstNameRegex = new Regex(@"^[A-Za-z]{3,30}");
 
             return FirstNameRegex.IsMatch(FirstName);
         }
 
-        public static async Task<bool> LastNameValidator(string LastName)
+        public static bool LastNameValidator(string LastName)
         {
             Regex LastNameRegex = new Regex(@"^[A-Za-z]{5,20}");
 
             return LastNameRegex.IsMatch(LastName);
         }
 
-        public static async Task<bool> EmailValidator(string Email)
+        public static bool EmailValidator(string Email)
         {
             
 
@@ -36,10 +36,10 @@ namespace LoginSystem.Core.Validations.UserValidation
             return EmailRegex.IsMatch(Email) && UserRepository.IsUniqueEmail(Email);
         }
 
-        public static async Task<bool> PasswordValidator(string Password)
+        public static bool PasswordValidator(string Password)
         {
 
-            Regex PassswordRegex = new Regex(@"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$");
+            Regex PassswordRegex = new Regex(@"(?=^.{8,30}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$");
 
             return PassswordRegex.IsMatch(Password);
         }
